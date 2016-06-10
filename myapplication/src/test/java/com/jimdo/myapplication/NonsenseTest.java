@@ -20,4 +20,9 @@ public class NonsenseTest {
     public void testAdd3() throws Exception {
         assertEquals(1000, new Nonsense().add(1, 999));
     }
+
+    @Test
+    public void testAdd4() throws Exception {
+        assertEquals(1001, new Nonsense().add(2, 999));
+    }
 }
