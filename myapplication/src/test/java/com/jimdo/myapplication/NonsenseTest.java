@@ -13,7 +13,7 @@ public class NonsenseTest {
 
     @Test
     public void testAdd2() throws Exception {
-        assertEquals(10, new Nonsense().add(6, 4));
+        assertEquals(1, new Nonsense().add(6, 4));
     }
 
     @Test
