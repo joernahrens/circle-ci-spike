@@ -13,11 +13,16 @@ public class NonsenseTest {
 
     @Test
     public void testAdd2() throws Exception {
-        assertEquals(1, new Nonsense().add(6, 4));
+        assertEquals(10, new Nonsense().add(6, 4));
     }
 
     @Test
     public void testAdd3() throws Exception {
         assertEquals(1000, new Nonsense().add(1, 999));
+    }
+
+    @Test
+    public void testAdd4() throws Exception {
+        assertEquals(1001, new Nonsense().add(2, 999));
     }
 }
