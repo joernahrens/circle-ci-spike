@@ -1,0 +1,49 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
+apply plugin: 'checkstyle'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+
+dependencies {
+  compile 'com.intellij:annotations:12.0'
+
+  // Groovy tests
+  testCompile 'org.codehaus.groovy:groovy-all:2.1.6'
+  testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+  testCompile 'cglib:cglib-nodep:2.2.2'
+  testCompile 'org.objenesis:objenesis:2.1'
+  // Java tests
+  testCompile 'junit:junit:4.10'
+  testCompile 'org.mockito:mockito-core:1.9.5'
+}
+
+pmd {
+  targetJdk = JavaVersion.VERSION_1_7
+  ignoreFailures = false
+}
+
+findbugs {
+  ignoreFailures = false
+  sourceSets     = [sourceSets.main]
+  excludeFilter  = file(["$project.rootDir.absolutePath", "config", "findbugs","exclude-filter.xml"].join(File.separator))
+}
+
+checkstyle {
+  configFile     = file(["$project.rootDir.absolutePath", "config", "checkstyle","checkstyle.xml"].join(File.separator))
+  ignoreFailures = false
+}
+
+/*
+  More info on why these are needed here: http://forums.gradle
+  .org/gradle/topics
+  /checkstyle_complaining_about_unable_to_get_class_information_for_in_1_0_milestone_6
+  */
+checkstyleMain {
+  classpath += configurations.compile
+}
+checkstyleTest {
+  classpath += configurations.compile
+}
+
