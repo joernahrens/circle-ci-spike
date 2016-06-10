@@ -11,6 +11,6 @@ test:
     # copy the test reports to artifacts
     - cp -r myapplication/build/reports/tests/debug $CIRCLE_ARTIFACTS
     # copy the test-results to artifacts
-    - cp -r myapplication/build/reports/test-results/debug $CIRCLE_ARTIFACTS
+    - cp -r myapplication/build/test-results/debug $CIRCLE_ARTIFACTS
     # copy the apk to artifacts
     - cp -r myapplication/build/outputs/apk $CIRCLE_ARTIFACTS
