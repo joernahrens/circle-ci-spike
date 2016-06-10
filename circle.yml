@@ -22,7 +22,7 @@ test:
     # copy artifacts
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - cp -r myapplication/build/reports/tests/debug $CIRCLE_ARTIFACTS
-    - cp -r myapplication/build/test-results/debug $CIRCLE_ARTIFACTS/junit
-    - cp -r myapplication/build/outputs/apk $CIRCLE_ARTIFACTS
-    - cp -r myapplication/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS/junit
+    - cp -r myapplication/build/outputs/apk/*release*apk $CIRCLE_ARTIFACTS
+    - cp -r myapplication/build/test-results/debug $CIRCLE_TEST_REPORTS/junit
+    - cp -r myapplication/build/outputs/androidTest-results/connected/* $CIRCLE_TEST_REPORTS/junit
 
